@@ -1,21 +1,31 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.scss';
+import Login from './components/Login'
+import Registro from './components/Registro'
+import Contraseña from './components/Contraseña'
+import Muro from './components/Muro'
 
-function App() {
-  return (<
-    div className="App" >
-    <header className="App-header" >
-      <p>
-        Edit
-         <code> src / App.js </code> and save to reload.
-          </p>
-      <a className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer" >
-        Learn React </a>
-    </header> </div>
-  );
+
+const App = () => {
+    return (
+        <Router>
+                <Switch>
+                    <Route path="/muro">
+                      <Muro />
+                    </Route>
+                    <Route path="/contraseña">
+                      <Contraseña />
+                    </Route>
+                    <Route path="/registro">
+                      <Registro />
+                    </Route>
+                    <Route path="/" exact>
+                       <Login />
+                    </Route>
+                </Switch>
+        </Router>
+    )
 }
 
-export default App;
+export default App
