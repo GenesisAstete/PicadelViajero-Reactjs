@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { auth, db } from '../firebase'
 import Carousel from './Carousel'
-import '../style/login.scss'
+import '../sass/login.scss'
 
 const Login = (props) => {
 

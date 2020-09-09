@@ -3,7 +3,7 @@ import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer }
 import fotoUno from '../img/cascadaEscritorio.png';
 import fotoDos from '../img/torresEscritorio.png';
 import fotoTres from '../img/termasEscritorio.jpg';
-import '../style/style.scss'
+import '../sass/carousel.scss'
 const Carousel = () => {
     return (
         <MDBContainer>
