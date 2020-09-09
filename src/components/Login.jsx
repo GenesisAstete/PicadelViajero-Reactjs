@@ -13,27 +13,27 @@ const Login = (props) => {
 
     const procesarDatos = e => {
         e.preventDefault()
-        if (!email.trim()) {
+
+        if(!email.trim()){
             console.log('Datos vacíos email!')
             setError('Datos vacíos email!')
             return
         }
-        if (!pass.trim()) {
+        if(!pass.trim()){
             console.log('Datos vacíos pass!')
             setError('Datos vacíos pass!')
             return
         }
-        if (pass.length < 6) {
+        if(pass.length < 6){
             console.log('6 o más carácteres')
             setError('6 o más carácteres en pass')
             return
         }
         console.log('correcto...')
         setError(null)
-
     }
 
-    const login = React.useCallback(async () => {
+const login = React.useCallback(async () => {
         try {
             const res = await auth.signInWithEmailAndPassword(email, pass)
             setEmail('')
@@ -44,13 +44,12 @@ const Login = (props) => {
                 console.log('entro', user)
                 setValidation(true)
             })
-
         } catch (error) {
             if (error.code === 'auth/user-not-found') {
                 setError('Usuario o contraseña incorrecta')
             }
             if (error.code === 'auth/wrong-password') {
-                setError('Usuario o contraseña incorrecta')
+               setError('Usuario o contraseña incorrecta')
             }
             console.log(error.code)
             console.log(error.message)
