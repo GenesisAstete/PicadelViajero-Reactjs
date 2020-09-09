@@ -1,15 +1,18 @@
 import React from "react";
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from "mdbreact";
-import fotoUno from '../img/cascadaEscritorio.png';
-import fotoDos from '../img/torresEscritorio.png';
-import fotoTres from '../img/termasEscritorio.jpg';
-import '../sass/carousel.scss'
+import fotoUno from '../img/torresEscritorio.png';
+import fotoDos from '../img/cascadaEscritorio.png';
+import fotoTres from '../img/iglesiaEscritorio.png';
+import foto4 from '../img/moais.jpg';
+
+import '../sass/carousel.scss' 
+
 const Carousel = () => {
     return (
         <MDBContainer>
             <MDBCarousel
                 activeItem={1}
-                length={3}
+                length={4}
                 showControls={false}
                 showIndicators={false}
                 className="z-depth-1"
@@ -20,6 +23,7 @@ const Carousel = () => {
                         <MDBView>
                             <img
                                 className="fotos"
+                                alt="Primary slide"
                                 src={fotoUno}
                             />
                         </MDBView>
@@ -39,6 +43,15 @@ const Carousel = () => {
                                 className="fotos"
                                 src={fotoTres}
                                 alt="Third slide"
+                            />
+                        </MDBView>
+                    </MDBCarouselItem>
+                    <MDBCarouselItem itemId="4">
+                        <MDBView>
+                            <img
+                                className="fotos"
+                                src={foto4}
+                                alt="4 slide"
                             />
                         </MDBView>
                     </MDBCarouselItem>
