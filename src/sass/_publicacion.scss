@@ -1,0 +1,29 @@
+@import '../sass/_variables.scss';
+
+.contenedorPublicacion {
+    background-color: $color-publicacion;
+    max-width: 100vw;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 20px;
+}
+
+.nombrePublicacion {
+    display: flex;
+    flex-direction: wrap;
+}
+
+.botonesPublicacion {
+    background-color: #00D1CD;
+}
+
+.contenedorFoto {
+    width: 100%;
+}
+
+.imagenPublicacion {
+    box-sizing: border-box;
+    width: 100%;
+}
