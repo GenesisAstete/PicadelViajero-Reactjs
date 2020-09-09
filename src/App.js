@@ -6,7 +6,7 @@ import Registro from './components/Registro'
 import Contraseña from './components/Contraseña'
 import Muro from './components/Muro'
 import Carousel from './components/Carousel'
-import './style/style.css'
+
 
 
 const App = () => {

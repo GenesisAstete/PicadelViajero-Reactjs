@@ -2,9 +2,10 @@ import React, { Fragment } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { auth, db } from '../firebase'
 import Carousel from './Carousel'
-import '../sass/login.scss'
+import logo from '../img/logo.jpg';
+/* import { Button } from "@material-ui/core"; */
 
-const Login = (props) => {
+const Login = () => {
 
     const [email, setEmail] = React.useState('')
     const [pass, setPass] = React.useState('')
@@ -63,31 +64,46 @@ const login = React.useCallback(async () => {
                     (<Fragment>
                         <div className="contenedorMayorLogin">
                             <div className="contenedorIngreso">
+                            <img
+                                className="logo"
+                                alt="logo"
+                                src={logo}
+                            />
                                 <form onSubmit={procesarDatos} >
                                     <div className="alert alert-danger">
                                         {error}
                                     </div>
-                                    <div>   <input
+                                    <div>   
+                                        <input
                                         className="inputIngreso"
                                         placeholder="Correo electronico"
                                         type="email"
                                         onChange={e => setEmail(e.target.value)}
-                                        value={email} /></div>
-                                    <div>     <input
+                                        value={email} />
+                                    </div>
+                                    <div>     
+                                        <input
                                         className="inputIngreso"
                                         placeholder="Contraseña"
                                         type="password"
                                         onChange={e => setPass(e.target.value)}
-                                        value={pass}
-                                    /> </div>
+                                        value={pass}  /> 
+                                    </div>
+                                    <div>
                                     <button
                                         className="inputIngreso"
                                         onClick={() => login()}
                                     >Iniciar sesion</button>
-
-                                    <p id="textoOlvido">¿Olvidó su Contraseña? </p>
+                                    </div>
+                                    <div>
+                                        <p id="textoOlvido">¿Olvidó su Contraseña? </p>
+                                    </div>
+                                    <div>
                                     <button id="btngoogle">Iniciar Sesión con Google</button>
+                                    </div>
+                                    <div>
                                     <p id="pTres">¿Aún no eres parte?</p>
+                                    </div>
                                     <Link to='/registro' ><button id="botonRegistrate"> Registrate</button></Link>
 
                                 </form>
