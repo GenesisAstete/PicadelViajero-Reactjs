@@ -1,0 +1,31 @@
+.contenedorNavbar {
+    text-align: center;
+    background-color: #03293C;
+}
+
+.imagenLogo {
+    width: 40%
+}
+
+.contenedorBotones {
+    height: 5vh;
+    display: flex;
+    /* flex-wrap: wrap; */
+    overflow-x: auto;
+}
+
+button {
+    flex-grow: 1;
+    color: black;
+    font-weight: bold;
+}
+
+.colorUno {
+    background-color: #49BEB7;
+    border: yellow;
+}
+
+.colorDos {
+    background-color: #E4C01F;
+    border: aquamarine;
+}
