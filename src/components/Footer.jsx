@@ -7,7 +7,7 @@ export const Footer = () => {
     return (
         <div className="contenedorFooter">
             <HomeIcon style={{ color: teal[50] }} />
-            <img src={icono} className="iconoPersona" />
+            <img src={icono} className="iconoPersona" alt="" />
             <PowerSettingsNewIcon style={{ color: teal[50] }} />
 
         </div>
