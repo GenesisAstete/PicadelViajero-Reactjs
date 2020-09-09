@@ -1,6 +1,9 @@
-import React from 'react'
-import {auth} from '../firebase'
+import React, { Fragment } from 'react'
+import { auth } from '../firebase'
 import { Redirect } from 'react-router';
+import Navbar from './Navbar';
+import Publicacion from './Publicacion';
+import { Footer } from './Footer';
 
 const Muro = () => {
 
@@ -9,23 +12,29 @@ const Muro = () => {
         auth.signOut()
             .then(() => {
                 setExit(true)
-                
+
             })
     }
     return (
-        <div>
-            <h1>Soy el Muro</h1>
+        <>
+            <Fragment>
+                <Navbar />
+                <Publicacion />
+                <Publicacion />
+                <Publicacion />
+                <Footer />
+            </Fragment>
             {
-                exit === false?
-           ( <button 
-                className="btn btn-dark" 
-                onClick={() => cerrarSesion()}
-              >
-                Cerrar Sesión
-            </button>
-         ):<Redirect push to="/" />
-        }
-        </div>
+                exit === false ?
+                    (<button
+                        className="btn btn-dark"
+                        onClick={() => cerrarSesion()}
+                    >
+                        Cerrar Sesión
+                    </button>
+                    ) : <Redirect push to="/" />
+            }
+        </>
     )
 }
 
