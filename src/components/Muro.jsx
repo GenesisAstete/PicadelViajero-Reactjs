@@ -63,8 +63,6 @@ const Muro = () => {
                     </form>
                 </div>
                 <Publicacion />
-                <Publicacion />
-                <Publicacion />
                 <Footer />
             </Fragment>
             {
