@@ -92,3 +92,13 @@ code {
 
 .iconoPersona {
   width: 8%; }
+
+.contenedorFormulario {
+  margin-top: 23px;
+  /* margin-left: 40px; */
+  display: flex;
+  flex-direction: column; }
+
+form {
+  display: flex;
+  flex-direction: column; }
