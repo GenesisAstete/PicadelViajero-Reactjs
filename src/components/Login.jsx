@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { auth, db } from '../firebase'
+import { db } from '../firebase'
 import Carousel from './Carousel'
 import logo from '../img/logo.jpg';
 /* import { Button } from "@material-ui/core"; */
+import { auth, signInWithGoogle } from '../firebase';
 
 const Login = () => {
 
@@ -99,7 +100,7 @@ const login = React.useCallback(async () => {
                                         <p id="textoOlvido">¿Olvidó su Contraseña? </p>
                                     </div>
                                     <div>
-                                    <button id="btngoogle">Iniciar Sesión con Google</button>
+                                    <button id="btngoogle" onClick={signInWithGoogle}>Iniciar Sesión con Google</button>
                                     </div>
                                     <div>
                                     <p id="pTres">¿Aún no eres parte?</p>
