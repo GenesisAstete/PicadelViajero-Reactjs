@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 const Muro = () => {
     const [tarea, setTarea] = React.useState("")
     const [exit, setExit] = React.useState(false)
+    const [tipo, setTipo] = React.useState("")
     const cerrarSesion = () => {
         auth.signOut()
             .then(() => {
@@ -38,6 +39,7 @@ const Muro = () => {
             console.log("salio malena")
         }
     }
+
     return (
         <>
             <Fragment>
