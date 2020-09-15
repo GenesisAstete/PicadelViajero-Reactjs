@@ -3,9 +3,8 @@ import Publicacion from './Publicacion'
 import { Footer } from './Footer'
 import Navbar from './Navbar'
 import Filtrados from './Filtrados'
-
-const Hospedaje = () => {
-    const tipo = "Hospedaje";
+const Tour = () => {
+    const tipo = "Tour";
     return (
         <Fragment>
             <Navbar />
@@ -15,4 +14,4 @@ const Hospedaje = () => {
     )
 }
 
-export default Hospedaje
+export default Tour

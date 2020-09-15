@@ -33,8 +33,11 @@ const Muro = () => {
                 likes: [],
                 tipo: tipo
             }
-            await db.collection("post").add(nuevaTarea)
-            setTarea("")
+            const data = await db.collection("post").add(nuevaTarea)
+            setTarea([...tarea,
+            { ...nuevaTarea, id: data.id }
+            ])
+            setTarea("");
         } catch (error) {
             console.log(error)
         }
