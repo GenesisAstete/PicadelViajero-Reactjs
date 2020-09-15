@@ -10,7 +10,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import teal from '@material-ui/core/colors/teal';
 
-const Publicacion = () => {
+const Publicacion = (props) => {
+    console.log("en publicacion", props.filtro)
     const [leer, setLeer] = React.useState([])
     const [modoEdicion, setModoEdicion] = React.useState(false)
 
@@ -19,17 +20,24 @@ const Publicacion = () => {
 
             try {
                 const db = firebase.firestore()
-                const data = await db.collection('post').get()
-  /*               console.log(data.docs) */
+                const data = await db.collection('post').orderBy("fechaCreacion", "desc").get();
+                console.log(data.docs)
                 const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-/*                 console.log(arrayData) */
+                console.log(arrayData)
+                /*   let filtrarDatos = arrayData.filter(arrayData => arrayData.tipo === props.filtro );*/
                 setLeer(arrayData)
+                //  console.log("filtradooos", filtrarDatos)
             } catch (error) {
                 console.log(error)
             }
         }
         obtenerDatos()
+
+
     }, [])
+
+
+
 
     return (
         <Fragment>
@@ -37,8 +45,8 @@ const Publicacion = () => {
                 leer.map(item => (
                     <div className="contenedorPublicacion" key={item.id}>
                         <div className="nombrePublicacion" >
-                         <img src={item.photoURL} alt="" width='12%'/> <div>{item.displayName}</div>
-                        <div>{ moment(item.fechaCreacion).subtract(10, 'days').calendar()}</div>
+                            <img src={item.photoURL} alt="" width='12%' /> <div>{item.displayName}</div>
+                            <div>{moment(item.fechaCreacion).subtract(10, 'days').calendar()}</div>
                         </div>
                         <div className="contenedorFoto">
                             <img src={foto1} className="imagenPublicacion" alt=""></img>
