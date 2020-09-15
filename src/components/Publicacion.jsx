@@ -13,7 +13,7 @@ const Publicacion = () => {
 
             try {
                 const db = firebase.firestore()
-                const data = await db.collection('usuarios').get()
+                const data = await db.collection('post').get()
 
                 console.log(data.docs)
                 const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
@@ -28,7 +28,6 @@ const Publicacion = () => {
     }, [])
     return (
         <Fragment>
-
             {
                 leer.map(item => (
                     <div className="contenedorPublicacion" key={item.id}>
@@ -44,12 +43,10 @@ const Publicacion = () => {
                             <EditIcon style={{ color: teal[50] }} />
                         </div>
 
-                    </div>))
+                    </div>
+                ))
             }
-
-
         </Fragment >
-
     )
 }
 

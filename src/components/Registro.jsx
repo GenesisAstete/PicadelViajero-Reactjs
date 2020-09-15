@@ -35,7 +35,7 @@ const Registro = () => {
         try {
             const res = await auth.createUserWithEmailAndPassword(email, pass)
             console.log(res.user)
-            await db.collection('usuarios').doc(res.user.uid).set({
+            await db.collection('users').doc(res.user.uid).set({
                fechaCreacion: Date.now(),
                 displayName: res.user.displayName,
                 photoURL: res.user.photoURL, 
@@ -45,7 +45,7 @@ const Registro = () => {
             setEmail('')
             setPass('')
             setError(null)
-            db.collection("usuarios").doc(res.user.uid).get().then((snap) =>{
+            db.collection("users").doc(res.user.uid).get().then((snap) =>{
                 const user = snap.data();
                 console.log('entro',user)
                 setValidation(true)

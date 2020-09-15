@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 const Muro = () => {
     const [tarea, setTarea] = React.useState("")
    /* const [tipo, setTipo] = React.useState("") */
-
+    
     const agregarComentario = async (e) => {
         e.preventDefault()
         console.log(tarea)
@@ -19,10 +19,16 @@ const Muro = () => {
         }
         try {
             const db = firebase.firestore()
+            const user = firebase.auth().currentUser;
             const nuevaTarea = {
-                comentario: tarea
+                fechaCreacion: Date.now(),
+                displayName: user.displayName,
+                photoURL: user.photoURL, 
+                uid: user.uid,
+                comentario: tarea,
+                likes: []
             }
-            await db.collection("usuarios").add(nuevaTarea)
+            await db.collection("post").add(nuevaTarea)
             setTarea("")
         } catch (error) {
             console.log(error)
