@@ -5,11 +5,13 @@ import { Footer } from './Footer';
 import firebase from 'firebase';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Link, Redirect } from 'react-router-dom'
 
 
 const Muro = () => {
     const [tarea, setTarea] = React.useState("")
     const [tipo, setTipo] = React.useState("")
+    const [filtro, setFiltro] = React.useState("")
 
     const agregarComentario = async (e) => {
         e.preventDefault()
@@ -37,6 +39,13 @@ const Muro = () => {
             console.log(error)
         }
     }
+    /*  const cambio = (e) => {
+          console.log(e.target.value)
+          const nuevoFiltro = (e.target.value);
+          setFiltro(nuevoFiltro)
+          console.log("en muro ", filtro)
+  
+      }*/
     return (
         <Fragment>
             <Navbar />
@@ -53,7 +62,8 @@ const Muro = () => {
                         variant="outlined"
                     />
                     <select onChange={e => setTipo(e.target.value)}>
-                        <option value="ruta" >Ruta</option>
+                        <option value="" >Option</option>
+                        <option value="Ruta" >Ruta</option>
                         <option value="Hospedaje">Hospedaje</option>
                         <option value="Comida"> Comida</option>
                         <option value="Clima">Clima</option>
@@ -65,7 +75,7 @@ const Muro = () => {
                         </Button>
                 </form>
             </div>
-            <Publicacion />
+            <Publicacion filtro={filtro} />
             <Footer />
         </Fragment>
 
