@@ -8,10 +8,9 @@ import firebase from 'firebase'
 import moment from 'moment'
 import 'moment/locale/es' // Pasar a español
 
-
-
-const Publicacion = (props) => {
+const Filtrados = (props) => {
     console.log("en publicacion", props.filtro)
+    const [filtro, setFiltro] = React.useState(props.filtro)
     const [leer, setLeer] = React.useState([])
 
     React.useEffect(() => {
@@ -19,12 +18,11 @@ const Publicacion = (props) => {
 
             try {
                 const db = firebase.firestore()
-                const data = await db.collection('post').orderBy("fechaCreacion", "desc").get();
-                console.log(data.docs)
+                const data = await db.collection('post').get()
                 const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
                 console.log(arrayData)
-                /*   let filtrarDatos = arrayData.filter(arrayData => arrayData.tipo === props.filtro );*/
-                setLeer(arrayData)
+                let filtrarDatos = arrayData.filter(arrayData => arrayData.tipo === filtro);
+                setLeer(filtrarDatos)
                 //  console.log("filtradooos", filtrarDatos)
             } catch (error) {
                 console.log(error)
@@ -33,10 +31,7 @@ const Publicacion = (props) => {
         obtenerDatos()
 
 
-    }, [])
-
-
-
+    }, [filtro])
 
     return (
         <Fragment>
@@ -62,4 +57,4 @@ const Publicacion = (props) => {
     )
 }
 
-export default Publicacion
+export default Filtrados
