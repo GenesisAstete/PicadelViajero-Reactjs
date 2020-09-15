@@ -1,34 +1,36 @@
 import React, { Fragment } from 'react'
 import foto1 from '../img/fotos1.jpg'
 /* import icono from '../img/usercian.png' */
-import EditIcon from '@material-ui/icons/Edit';
-import teal from '@material-ui/core/colors/teal';
 import firebase from 'firebase'
 import moment from 'moment'
 import 'moment/locale/es' // Pasar a español
-
-
+import DeletePost from './DeletePost';
+import EditPost from './EditPost'
+import EditIcon from '@material-ui/icons/Edit';
+import IconButton from '@material-ui/core/IconButton';
+import teal from '@material-ui/core/colors/teal';
 
 const Publicacion = () => {
     const [leer, setLeer] = React.useState([])
+    const [modoEdicion, setModoEdicion] = React.useState(false)
+
     React.useEffect(() => {
         const obtenerDatos = async () => {
 
             try {
                 const db = firebase.firestore()
                 const data = await db.collection('post').get()
-
-                console.log(data.docs)
+  /*               console.log(data.docs) */
                 const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-                console.log(arrayData)
+/*                 console.log(arrayData) */
                 setLeer(arrayData)
             } catch (error) {
                 console.log(error)
             }
         }
         obtenerDatos()
-
     }, [])
+
     return (
         <Fragment>
             {
@@ -41,11 +43,23 @@ const Publicacion = () => {
                         <div className="contenedorFoto">
                             <img src={foto1} className="imagenPublicacion" alt=""></img>
                         </div>
-                        <div className="textoPublicacion">{item.comentario}</div>
-                        <div className="botonesPublicacion">
-                            <DeletePost />
-                            <EditIcon style={{ color: teal[50] }} />
-                        </div>
+                        {
+                        modoEdicion === 'true' ? 
+                            <>
+                            <div>{item.comentario}</div>
+                             <EditPost posts={item.id} dataPost={leer}/>  
+                            </>
+                             :  
+                            <div className="textoPublicacion">{item.comentario}</div>
+                            
+                        }
+                            <div className="botonesPublicacion">
+                                <DeletePost posts={item.id} dataPost={leer}/>
+                                <IconButton aria-label="edit">
+                                    <EditIcon style={{ color: teal[50] }} onChange={() => setModoEdicion(true)}/>
+                                </IconButton>
+                            </div>
+                  
                     </div>
                 ))
             }
