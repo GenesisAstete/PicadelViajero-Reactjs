@@ -17,26 +17,27 @@ const Publicacion = (props) => {
 
     React.useEffect(() => {
         const obtenerDatos = async () => {
-
             try {
                 const db = firebase.firestore()
-                const data = await db.collection('post').orderBy("fechaCreacion", "desc").get();
-                console.log(data.docs)
-                const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-                console.log(arrayData)
-                /*   let filtrarDatos = arrayData.filter(arrayData => arrayData.tipo === props.filtro );*/
-                setLeer(arrayData)
-                //  console.log("filtradooos", filtrarDatos)
+                await db.collection('post').orderBy("fechaCreacion", "desc").onSnapshot((snap => {
+                    const arrayData = snap.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                setLeer(arrayData);
+                }));
             } catch (error) {
                 console.log(error)
             }
         }
         obtenerDatos()
-
-
     }, [])
 
 
+    const edit = () =>{ 
+         setModoEdicion(true) 
+        console.log('editando')
+    }
 
 
     return (
@@ -52,22 +53,23 @@ const Publicacion = (props) => {
                             <img src={foto1} className="imagenPublicacion" alt=""></img>
                         </div>
                         {
-                        modoEdicion === 'true' ? 
-                            <>
-                            <div>{item.comentario}</div>
-                             <EditPost posts={item.id} dataPost={leer}/>  
-                            </>
-                             :  
+                        modoEdicion === true ? 
+                           (
+                             <EditPost /* posts={item.id} dataPost={leer} *//>
+                           ):(
+                               <>
                             <div className="textoPublicacion">{item.comentario}</div>
-                            
-                        }
                             <div className="botonesPublicacion">
                                 <DeletePost posts={item.id} dataPost={leer}/>
+                                {/* <button onClick={edit} >editar</button> */}
                                 <IconButton aria-label="edit">
-                                    <EditIcon style={{ color: teal[50] }} onChange={() => setModoEdicion(true)}/>
-                                </IconButton>
+                                    <EditIcon style={{ color: teal[50] }} onClick={edit} />
+                                </IconButton> 
                             </div>
-                  
+                            </>
+                            )    
+                        }
+                           
                     </div>
                 ))
             }

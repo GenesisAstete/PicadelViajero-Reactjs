@@ -10,8 +10,9 @@ const EditPost = (props) => {
     const [postData, setPostData] = React.useState(props.dataPost)
     const [tarea, setTarea] = React.useState()
 
-    const editar = async (id) => {
-        try {
+    const guardar = async () => {
+      console.log('id guardar')
+/*         try {
           await db.collection('post').doc(id).update({
             comentario: tarea
           })
@@ -20,23 +21,25 @@ const EditPost = (props) => {
           ))
           setPostData(arrayEditado)
           setPostId(postId)     
- /*          setId('')*/
+           setId('')
            setTarea('')  
         } catch (error) {
           console.log(error)
-        }
+        } */
+        /* setPostId(id) */
     }
 
     return (
         <> 
-            <input 
+        <textarea>holanda</textarea>
+{/*             <input 
             type="text" 
             className="form-control mb-2"
             placeholder='Ingrese Tarea'
             value={tarea}
             onChange={e => setPostId(e.target.value)}
-            /> 
-            <button onClick={editar(postId)}>Guardar</button>
+            />  */}
+            <button onClick={guardar(postId)}>Guardar</button>
         </>
     )
 }
