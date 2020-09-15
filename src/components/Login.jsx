@@ -40,7 +40,7 @@ const login = React.useCallback(async () => {
             setEmail('')
             setPass('')
             setError(null)
-            db.collection("usuarios").doc(res.user.uid).get().then((snap) => {
+            db.collection("users").doc(res.user.uid).get().then((snap) => {
                 const user = snap.data();
                 console.log('entro', user)
                 setValidation(true)
