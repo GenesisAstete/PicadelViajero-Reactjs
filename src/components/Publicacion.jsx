@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import foto1 from '../img/fotos1.jpg'
 /* import icono from '../img/usercian.png' */
-import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import teal from '@material-ui/core/colors/teal';
 import firebase from 'firebase'
@@ -44,7 +43,7 @@ const Publicacion = () => {
                         </div>
                         <div className="textoPublicacion">{item.comentario}</div>
                         <div className="botonesPublicacion">
-                            <DeleteIcon style={{ color: teal[50] }} />
+                            <DeletePost />
                             <EditIcon style={{ color: teal[50] }} />
                         </div>
                     </div>
