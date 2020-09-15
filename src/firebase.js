@@ -19,7 +19,7 @@ const auth = firebase.auth();
 
 export {db, auth};
 
-const provider = new firebase.auth.GoogleAuthProvider();
+/* const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({
   promt: "select_account",
 });
@@ -39,10 +39,12 @@ export const createUserProfileDocument =async (userAuth) => {
          createdAt,
          photoURL
        })
+  
      } catch (error) {
         console.log(error)
      }
    }
-   return userReference;
+   
+   return userReference ;
   }
-  export const signInWithGoogle = () => auth.signInWithPopup(provider);
+  export const signInWithGoogle = () => auth.signInWithPopup(provider); */

@@ -1,6 +1,4 @@
-import React, { Fragment } from 'react'
-import { auth } from '../firebase'
-import { Redirect } from 'react-router';
+import React, { Fragment } from 'react';
 import Navbar from './Navbar';
 import Publicacion from './Publicacion';
 import { Footer } from './Footer';
@@ -8,17 +6,10 @@ import firebase from 'firebase';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+
 const Muro = () => {
     const [tarea, setTarea] = React.useState("")
-    const [exit, setExit] = React.useState(false)
-    const [tipo, setTipo] = React.useState("")
-    const cerrarSesion = () => {
-        auth.signOut()
-            .then(() => {
-                setExit(true)
-
-            })
-    }
+   /* const [tipo, setTipo] = React.useState("") */
 
     const agregarComentario = async (e) => {
         e.preventDefault()
@@ -26,22 +17,18 @@ const Muro = () => {
         if (!tarea.trim()) {
             console.log("esta vacio!!!")
         }
-
         try {
             const db = firebase.firestore()
             const nuevaTarea = {
                 comentario: tarea
             }
-            const data = await db.collection("usuarios").add(nuevaTarea)
+            await db.collection("usuarios").add(nuevaTarea)
             setTarea("")
         } catch (error) {
             console.log(error)
-            console.log("salio malena")
         }
     }
-
     return (
-        <>
             <Fragment>
                 <Navbar />
                 <div className="contenedorFormulario" >
@@ -58,25 +45,13 @@ const Muro = () => {
                         />
                         <Button variant="contained" color="primary" type="submit">
                             Publicar
-                    </Button>
-
+                        </Button>
                     </form>
                 </div>
                 <Publicacion />
                 <Footer />
             </Fragment>
-            {
-                exit === false ?
-                    (<button
-                        className="btn btn-dark"
-                        onClick={() => cerrarSesion()}
-                    >
-                        Cerrar Sesión
-                    </button>
-                    ) : <Redirect push to="/" />
-            }
-        </>
+
     )
 }
-
 export default Muro
