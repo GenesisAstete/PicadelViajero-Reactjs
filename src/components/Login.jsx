@@ -15,17 +15,17 @@ const Login = () => {
     const procesarDatos = e => {
         e.preventDefault()
 
-        if(!email.trim()){
+        if (!email.trim()) {
             console.log('Datos vacíos email!')
             setError('Datos vacíos email!')
             return
         }
-        if(!pass.trim()){
+        if (!pass.trim()) {
             console.log('Datos vacíos pass!')
             setError('Datos vacíos pass!')
             return
         }
-        if(pass.length < 6){
+        if (pass.length < 6) {
             console.log('6 o más carácteres')
             setError('6 o más carácteres en pass')
             return
@@ -34,7 +34,7 @@ const Login = () => {
         setError(null)
     }
 
-const login = React.useCallback(async () => {
+    const login = React.useCallback(async () => {
         try {
             const res = await auth.signInWithEmailAndPassword(email, pass)
             setEmail('')
@@ -50,7 +50,7 @@ const login = React.useCallback(async () => {
                 setError('Usuario o contraseña incorrecta')
             }
             if (error.code === 'auth/wrong-password') {
-               setError('Usuario o contraseña incorrecta')
+                setError('Usuario o contraseña incorrecta')
             }
             console.log(error.code)
             console.log(error.message)
@@ -63,50 +63,51 @@ const login = React.useCallback(async () => {
                 validation === false ?
                     (<Fragment>
                         <div className="contenedorMayorLogin">
-                            <div className="contenedorIngreso">
                             <img
                                 className="logo"
                                 alt="logo"
                                 src={logo}
                             />
-                                <form onSubmit={procesarDatos} >
+                            <div className="contenedorIngreso">
+
+                                <form onSubmit={procesarDatos} className="formLogin" >
                                     <div className="alert alert-danger">
                                         {error}
                                     </div>
-                                    <div>   
+                                    <div>
                                         <input
-                                        className="inputIngreso"
-                                        placeholder="Correo electronico"
-                                        type="email"
-                                        onChange={e => setEmail(e.target.value)}
-                                        value={email} />
+                                            className="inputIngreso"
+                                            placeholder="Correo electronico"
+                                            type="email"
+                                            onChange={e => setEmail(e.target.value)}
+                                            value={email} />
                                     </div>
-                                    <div>     
+                                    <div>
                                         <input
-                                        className="inputIngreso"
-                                        placeholder="Contraseña"
-                                        type="password"
-                                        onChange={e => setPass(e.target.value)}
-                                        value={pass}  /> 
+                                            className="inputIngreso"
+                                            placeholder="Contraseña"
+                                            type="password"
+                                            onChange={e => setPass(e.target.value)}
+                                            value={pass} />
                                     </div>
                                     <div>
-                                    <button
-                                        className="inputIngreso"
-                                        onClick={() => login()}
-                                    >Iniciar sesion</button>
+                                        <button
+                                            className="botonInputIngreso"
+                                            onClick={() => login()}
+                                        >Iniciar sesion</button>
                                     </div>
-                                    
-                                    <div>
-                                        <p id="textoOlvido">¿Olvidó su Contraseña? </p>
-                                    </div>
-                                    <div>
-                                    <ButtonGF />
-                                    </div>
-                                    <div>
-                                    <p id="pTres">¿Aún no eres parte?</p>
-                                    </div>
-                                    <Link to='/registro' ><button id="botonRegistrate"> Registrate</button></Link>
 
+                                    { /* <div>
+                                        <p id="textoOlvido">¿Olvidó su Contraseña? </p>
+                                 </div>*/}
+                                    <div>
+                                        <ButtonGF />
+                                    </div>
+                                    <div>
+                                        <p id="pTres">¿Aún no eres parte?</p>
+
+                                        <Link to='/registro' ><button id="botonRegistrate" className="botonInputIngreso "> Registrate</button></Link>
+                                    </div>
                                 </form>
                             </div>
                         </div>

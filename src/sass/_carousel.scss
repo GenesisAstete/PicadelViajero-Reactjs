@@ -1,25 +1,27 @@
-
 @import '../sass/_variables.scss';
-@font-face{
+
+@font-face {
     font-family: "Brushstrike";
-    src:"../fonts/Brushstriketrial.ttf"
+    src: "../fonts/Brushstriketrial.ttf"
 }
+
 .fotos {
     width: 100%;
     height: 100vh;
 }
 
-.view{
+.view {
     display: flex !important;
     justify-content: center !important;
 }
 
-.textSlider{
+.textSlider {
     width: 80%;
     position: absolute;
     z-index: 2000;
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: "Brushstrike";
     text-align: center;
-    color:$color2;
+    color: white;
+    margin-top: 150px;
 }
