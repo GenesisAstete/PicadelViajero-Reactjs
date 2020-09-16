@@ -1,5 +1,6 @@
 .contenedorMayorLogin {
-    width: 100%;;
+    width: 100%;
+    ;
     height: 100vh;
     position: absolute;
     z-index: 2000;
@@ -8,6 +9,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .contenedorIngreso {
     width: 65%;
     background: rgba(255, 255, 255, 0.5);
@@ -18,11 +20,67 @@
     flex-direction: column;
 }
 
-.logo{
-    position: absolute;
-    width: 166px;
-    height: 115px;
+.logo {
+    width: 155px;
+    height: 110px;
     border-radius: 10px;
-    margin-top: -437px;
+    margin-bottom: 124px;
     z-index: 2000;
+}
+
+.formLogin {
+    text-align: center;
+    height: 355px;
+    border-radius: 17px
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.botonInputIngreso {
+    border-radius: 19px;
+    width: 210px;
+    background-color: #039F87;
+    height: 36px;
+    color: white;
+}
+
+.inputIngreso {
+    border-radius: 14px;
+    width: 81%;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#botonRegistrate {
+    background-color: blanchedalmond;
+    color: black;
+}
+
+.firebaseui-idp-google,
+.firebaseui-idp-google:hover,
+.mdl-button.firebaseui-idp-google:active,
+.mdl-button.firebaseui-idp-google:focus {
+    border-radius: 19px !important;
+}
+
+.firebaseui-idp-facebook,
+.firebaseui-idp-facebook:hover,
+.mdl-button.firebaseui-idp-facebook:active,
+.mdl-button.firebaseui-idp-facebook:focus {
+    border-radius: 19px !important;
+    margin-bottom: 0px !important;
+}
+
+.firebaseui-idp-list {
+    padding: 0 !important;
+    margin-bottom: 0px !important;
+}
+
+@media (min-width: 1024px) {
+    .contenedorIngreso {
+        width: 28%;
+    }
 }
