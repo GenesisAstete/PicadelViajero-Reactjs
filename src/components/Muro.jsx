@@ -11,7 +11,8 @@ import Button from '@material-ui/core/Button';
 const Muro = () => {
     const [tarea, setTarea] = React.useState("")
     const [tipo, setTipo] = React.useState("")
-    const [filtro, setFiltro] = React.useState("")
+/*     const [filtro, setFiltro] = React.useState("") */
+    const filtro = ''
 
     const agregarComentario = async (e) => {
         e.preventDefault()
@@ -33,8 +34,11 @@ const Muro = () => {
                 likes: [],
                 tipo: tipo
             }
-            await db.collection("post").add(nuevaTarea)
-            setTarea("")
+            const data = await db.collection("post").add(nuevaTarea)
+            setTarea([...tarea,
+            { ...nuevaTarea, id: data.id }
+            ])
+            setTarea("");
         } catch (error) {
             console.log(error)
         }

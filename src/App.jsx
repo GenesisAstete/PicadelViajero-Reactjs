@@ -7,6 +7,10 @@ import Muro from './components/Muro'
 import Carousel from './components/Carousel'
 import Ruta from './components/Ruta';
 import Hospedaje from './components/Hospedaje'
+import Clima from './components/Clima';
+import Comida from './components/Comida';
+import Transporte from './components/Transporte';
+import Tour from './components/Tour';
 
 const App = () => {
 
@@ -30,6 +34,18 @@ const App = () => {
         </Route>
         <Route path="/hospedaje">
           <Hospedaje />
+        </Route>
+        <Route path="/clima">
+          <Clima />
+        </Route >
+        <Route path="/comida">
+          <Comida />
+        </Route>
+        <Route path="/transporte">
+          <Transporte />
+        </Route>
+        <Route path="/tour">
+          <Tour />
         </Route>
         <Route path="/" exact>
           <Login />
