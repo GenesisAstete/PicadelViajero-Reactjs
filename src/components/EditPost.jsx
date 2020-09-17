@@ -8,7 +8,7 @@ const EditPost = (props) => {
 
     const [postId, setPostId] = React.useState(props.postId)
     const [post, setPost] = React.useState(props.post)
-    const [postData, setPostData] = React.useState(props.dataPost)
+ /*    const [postData, setPostData] = React.useState(props.dataPost) */
  
     const guardar = () => {
    

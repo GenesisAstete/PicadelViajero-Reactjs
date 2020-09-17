@@ -10,26 +10,67 @@
 .contenedorBotones {
     height: 5vh;
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     overflow-x: auto;
+
 }
 
-button {
-    flex-grow: 1;
-    color: black;
-    font-weight: bold;
-}
+button {}
+
 
 .colorUno {
     background-color: #49BEB7;
-    border: yellow;
+    border: #E4C01F;
     font-size: 90%;
     height: 100%;
+
 }
 
 .colorDos {
     background-color: #E4C01F;
-    border: aquamarine;
+    border: #49BEB7;
     font-size: 90%;
     height: 100%;
+
+}
+
+
+
+@media (max-width: 450px) {
+
+    .botonesNav {
+        flex-grow: 1;
+        color: black;
+        font-weight: bold;
+        background-color: #E4C01F;
+        border: green
+    }
+
+    .botonesNavUno {
+        flex-grow: 1;
+        color: black;
+        font-weight: bold;
+        background-color: #49BEB7;
+
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .botonesNav {
+        flex-grow: 1;
+        color: black;
+        font-weight: bold;
+        background-color: #E4C01F;
+        border: green
+    }
+
+    .botonesNavUno {
+        flex-grow: 1;
+        color: black;
+        font-weight: bold;
+        background-color: #49BEB7;
+
+    }
+
 }

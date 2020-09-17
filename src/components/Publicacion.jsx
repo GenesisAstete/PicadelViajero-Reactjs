@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import foto1 from '../img/fotos1.jpg'
-/* import icono from '../img/usercian.png' */
+import icono from '../img/usercian.png'
 import firebase from 'firebase'
 import moment from 'moment'
 import 'moment/locale/es' // Pasar a español
@@ -45,7 +45,7 @@ const Publicacion = () => {
                 leer.map(item => (
                     <div className="contenedorPublicacion" key={item.id}>
                         <div className="nombrePublicacion" >
-                            <img src={item.photoURL} alt="" width='12%' /> <div>{item.displayName}</div>
+                            <img src={item.photoURL || icono} alt="" width='12%' /> <div>{item.displayName || 'NO ME GUARDARON NOMBRE'}</div>
                             <div>{moment(item.fechaCreacion).subtract(10, 'days').calendar()}</div>
                         </div>
                         <div className="contenedorFoto">
@@ -54,7 +54,7 @@ const Publicacion = () => {
                         {
                             modoEdicion === true && idPost === item.id ?
                                 (
-                                    <EditPost postId={idPost} post={item.comentario} dataPost={leer} ModoEdicion={updateModoEdicion} />
+                                    <EditPost postId={idPost} post={item.comentario} ModoEdicion={updateModoEdicion} />
                                 ) : (
                                     <>
                                         <div className="textoPublicacion">{item.comentario}</div>
