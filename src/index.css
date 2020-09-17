@@ -113,7 +113,10 @@ li {
   padding-bottom: 5px;
   padding-top: 5px;
   margin-top: 20px;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 45px; }
 
 .nombrePublicacion {
   display: flex;
@@ -128,6 +131,15 @@ li {
 .imagenPublicacion {
   box-sizing: border-box;
   width: 100%; }
+
+.textoPublicacion {
+  height: 10vh; }
+
+@media (min-width: 768px) {
+  .contenedorPublicacion {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 68vw; } }
 
 @media (min-width: 1024px) {
   .contenedorPublicacion {
@@ -150,7 +162,8 @@ li {
   bottom: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  margin-top: 19px; }
 
 .iconoPersona {
   width: 8%; }
@@ -164,6 +177,12 @@ li {
 form {
   display: flex;
   flex-direction: column; }
+
+@media (min-width: 768px) {
+  .contenedorGeneralMuro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
 
 @media (min-width: 1024px) {
   .contenedorFormulario {

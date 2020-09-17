@@ -4,73 +4,129 @@
 }
 
 .imagenLogo {
-    width: 40%
+    width: 40%;
 }
 
 .contenedorBotones {
     height: 5vh;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     overflow-x: auto;
-
 }
 
-button {}
-
+button {
+    flex-grow: 1;
+    color: black;
+    font-weight: bold;
+    width: 62px;
+}
 
 .colorUno {
     background-color: #49BEB7;
-    border: #E4C01F;
+    border: yellow;
     font-size: 90%;
     height: 100%;
-
 }
 
 .colorDos {
     background-color: #E4C01F;
-    border: #49BEB7;
+    border: aquamarine;
     font-size: 90%;
     height: 100%;
-
 }
-
-
 
 @media (max-width: 450px) {
+    .colorUno {
+        font-size: 80%;
 
-    .botonesNav {
-        flex-grow: 1;
-        color: black;
-        font-weight: bold;
-        background-color: #E4C01F;
-        border: green
     }
 
-    .botonesNavUno {
+    .colorDos {
+        font-size: 80%;
+    }
+
+    button {
+        flex-grow: 10;
+        color: black;
+        font-weight: bold;
+
+        width: 72px;
+    }
+
+
+    .contenedorBotones {
+        height: 5vh;
+        display: flex;
+
+    }
+}
+
+@media (min-width: 768px) {
+    .colorUno {
+        font-size: 100%;
+
+    }
+
+    .colorDos {
+        font-size: 100%;
+
+    }
+
+    button {
         flex-grow: 1;
         color: black;
         font-weight: bold;
-        background-color: #49BEB7;
+        width: 128px;
+
+    }
+
+
+    .contenedorBotones {
+        height: 5vh;
+        display: flex;
+        /* flex-wrap: wrap; 
+    overflow-x: auto;*/
+    }
+}
+
+/*
+
+@media (max-width: 1024px) {
+
+    button {
+        flex-grow: 2;
+        color: black;
+        font-weight: bold;
+        width: 178px;
+
+    }
+
+
+    .contenedorBotones {
+        height: 5vh;
+        display: flex;
 
     }
 
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    .botonesNav {
+/*
+
+@media (min-width: 1400px) {
+    button {
         flex-grow: 1;
         color: black;
         font-weight: bold;
-        background-color: #E4C01F;
-        border: green
-    }
-
-    .botonesNavUno {
-        flex-grow: 1;
-        color: black;
-        font-weight: bold;
-        background-color: #49BEB7;
+        width: 235px;
 
     }
 
+
+    .contenedorBotones {
+        height: 5vh;
+        display: flex;
+      
 }
+}
+
+*/
