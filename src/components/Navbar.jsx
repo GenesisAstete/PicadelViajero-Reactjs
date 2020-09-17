@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import '../sass/navbar.scss'
 
 const Navbar = () => {
-/*     const [filtro, setFiltro] = React.useState(""); */
+    /*     const [filtro, setFiltro] = React.useState(""); */
     return (
         <div className="contenedorNavbar">
             <Link to="./muro">  <img src={logo} alt="" className="imagenLogo" /> </Link>
             <div className="contenedorBotones">
-                <Link to="./ruta"><button className="colorUno" value="Ruta" >Ruta</button></Link>
+                <Link to="./ruta" ><button className="colorUno" value="Ruta" >Ruta</button></Link>
                 <Link to="./hospedaje"><button className="colorDos" value="Hospedaje" >Hospedaje</button> </Link>
                 <Link to="./comida"><button className="colorUno" value="Comida" >Comida</button> </Link>
                 <Link to="./clima"> <button className="colorDos" value="Clima" >Clima</button> </Link>

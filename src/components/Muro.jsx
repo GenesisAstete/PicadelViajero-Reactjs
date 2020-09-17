@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 const Muro = () => {
     const [tarea, setTarea] = React.useState("")
     const [tipo, setTipo] = React.useState("")
-/*     const [filtro, setFiltro] = React.useState("") */
+    /*     const [filtro, setFiltro] = React.useState("") */
     const filtro = ''
 
     const agregarComentario = async (e) => {
@@ -52,35 +52,38 @@ const Muro = () => {
       }*/
     return (
         <Fragment>
+
             <Navbar />
-            <div className="contenedorFormulario" >
-                <form onSubmit={agregarComentario} >
-                    <TextField
-                        onChange={e => setTarea(e.target.value)}
-                        value={tarea}
-                        id="outlined-multiline-static"
-                        label="Deja tu picada aquí"
-                        multiline
-                        rows={4}
-                        defaultValue="Default Value"
-                        variant="outlined"
-                    />
-                    <select onChange={e => setTipo(e.target.value)}>
-                        <option value="" >Option</option>
-                        <option value="Ruta" >Ruta</option>
-                        <option value="Hospedaje">Hospedaje</option>
-                        <option value="Comida"> Comida</option>
-                        <option value="Clima">Clima</option>
-                        <option value="Transporte">Transporte</option>
-                        <option value="Tour">Tour</option>
-                    </select>
-                    <Button variant="contained" color="primary" type="submit">
-                        Publicar
+            <div className="contenedorGeneralMuro">
+                <div className="contenedorFormulario" >
+                    <form onSubmit={agregarComentario} >
+                        <TextField
+                            onChange={e => setTarea(e.target.value)}
+                            value={tarea}
+                            id="outlined-multiline-static"
+                            label="Deja tu picada aquí"
+                            multiline
+                            rows={4}
+                            defaultValue="Default Value"
+                            variant="outlined"
+                        />
+                        <select onChange={e => setTipo(e.target.value)}>
+                            <option value="" >Option</option>
+                            <option value="Ruta" >Ruta</option>
+                            <option value="Hospedaje">Hospedaje</option>
+                            <option value="Comida"> Comida</option>
+                            <option value="Clima">Clima</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Tour">Tour</option>
+                        </select>
+                        <Button variant="contained" color="primary" type="submit">
+                            Publicar
                         </Button>
-                </form>
+                    </form>
+                </div>
+                <Publicacion filtro={filtro} />
+                <Footer />
             </div>
-            <Publicacion filtro={filtro} />
-            <Footer />
         </Fragment>
 
     )

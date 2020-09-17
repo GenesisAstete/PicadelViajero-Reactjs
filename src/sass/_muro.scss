@@ -9,3 +9,15 @@ form {
     display: flex;
     flex-direction: column;
 }
+
+@media (min-width: 1024px) {
+    .contenedorFormulario {
+        width: 41vw;
+    }
+
+    .contenedorGeneralMuro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

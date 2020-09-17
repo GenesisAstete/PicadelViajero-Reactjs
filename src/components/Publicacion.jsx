@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import teal from '@material-ui/core/colors/teal';
 
 const Publicacion = () => {
-  
+
     const [leer, setLeer] = React.useState([])
     const [idPost, setIdPost] = React.useState("")
     const [modoEdicion, setModoEdicion] = React.useState(false)
@@ -31,14 +31,14 @@ const Publicacion = () => {
     }, [])
 
 
-    const edit = (item) =>{ 
-        setModoEdicion(true) 
+    const edit = (item) => {
+        setModoEdicion(true)
         setIdPost(item.id)
     }
 
     const updateModoEdicion = () => {
-        setModoEdicion(false) 
-      }
+        setModoEdicion(false)
+    }
     return (
         <Fragment>
             {
@@ -49,25 +49,25 @@ const Publicacion = () => {
                             <div>{moment(item.fechaCreacion).subtract(10, 'days').calendar()}</div>
                         </div>
                         <div className="contenedorFoto">
-                            <img src={foto1} className="imagenPublicacion" alt=""></img>
+                            <img src={item.photoPost || foto1} className="imagenPublicacion" alt=""></img>
                         </div>
                         {
-                        modoEdicion === true && idPost === item.id? 
-                           (
-                             <EditPost postId={idPost} post={item.comentario} dataPost={leer} ModoEdicion={updateModoEdicion}/>
-                           ):(
-                               <>
-                            <div className="textoPublicacion">{item.comentario}</div>
-                            <div className="botonesPublicacion">
-                                <DeletePost posts={item.id} dataPost={leer}/>
-                                <IconButton aria-label="edit">
-                                    <EditIcon style={{ color: teal[50] }} onClick={() => edit(item)} value={item.id}  />
-                                </IconButton> 
-                            </div>
-                            </>
-                            )    
+                            modoEdicion === true && idPost === item.id ?
+                                (
+                                    <EditPost postId={idPost} post={item.comentario} dataPost={leer} ModoEdicion={updateModoEdicion} />
+                                ) : (
+                                    <>
+                                        <div className="textoPublicacion">{item.comentario}</div>
+                                        <div className="botonesPublicacion">
+                                            <DeletePost posts={item.id} dataPost={leer} />
+                                            <IconButton aria-label="edit">
+                                                <EditIcon style={{ color: teal[50] }} onClick={() => edit(item)} value={item.id} />
+                                            </IconButton>
+                                        </div>
+                                    </>
+                                )
                         }
-                           
+
                     </div>
                 ))
             }
