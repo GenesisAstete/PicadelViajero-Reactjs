@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
 
 @font-face {
   font-family: "Brushstrike";
@@ -100,7 +100,10 @@ li {
 
 @media (min-width: 1024px) {
   .contenedorIngreso {
-    width: 28%; } }
+    width: 20%; }
+  .logo {
+    margin-bottom: 60px;
+    margin-top: 0px; } }
 
 .contenedorPublicacion {
   background-color: rgba(68, 68, 68, 0.18);
@@ -110,7 +113,10 @@ li {
   padding-bottom: 5px;
   padding-top: 5px;
   margin-top: 20px;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 45px; }
 
 .nombrePublicacion {
   display: flex;
@@ -126,6 +132,26 @@ li {
   box-sizing: border-box;
   width: 100%; }
 
+.textoPublicacion {
+  height: 10vh; }
+
+@media (min-width: 768px) {
+  .contenedorPublicacion {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 68vw; } }
+
+@media (min-width: 1024px) {
+  .contenedorPublicacion {
+    background-color: rgba(68, 68, 68, 0.18);
+    max-width: 40vw;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 20px;
+    margin-bottom: 2rem; } }
+
 .contenedorFooter {
   background-color: #03293C;
   height: 5vh;
@@ -136,7 +162,8 @@ li {
   bottom: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  margin-top: 19px; }
 
 .iconoPersona {
   width: 8%; }
@@ -150,6 +177,20 @@ li {
 form {
   display: flex;
   flex-direction: column; }
+
+@media (min-width: 768px) {
+  .contenedorGeneralMuro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
+
+@media (min-width: 1024px) {
+  .contenedorFormulario {
+    width: 41vw; }
+  .contenedorGeneralMuro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
 
 .contenedorRegistrar {
   background-image: url("../img/muelleEscritorio.jpg");

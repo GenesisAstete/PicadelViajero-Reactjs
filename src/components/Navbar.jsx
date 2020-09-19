@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import '../sass/navbar.scss'
 
 const Navbar = () => {
-/*     const [filtro, setFiltro] = React.useState(""); */
+    /*     const [filtro, setFiltro] = React.useState(""); */
     return (
         <div className="contenedorNavbar">
             <Link to="./muro">  <img src={logo} alt="" className="imagenLogo" /> </Link>
