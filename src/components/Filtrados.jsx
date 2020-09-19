@@ -40,7 +40,7 @@ const Filtrados = (props) => {
                     <div className="contenedorPublicacion" key={item.id}>
                         <div className="nombrePublicacion" >
                             <img src={item.photoURL} alt="" width='12%' /> <div>{item.displayName}</div>
-                            <div>{moment(item.fechaCreacion).subtract(10, 'days').calendar()}</div>
+                            <div>{moment(item.fechaCreacion).format('L')}</div>
                         </div>
                         <div className="contenedorFoto">
                             <img src={item.photoPost || foto1} className="imagenPublicacion" alt=""></img>
