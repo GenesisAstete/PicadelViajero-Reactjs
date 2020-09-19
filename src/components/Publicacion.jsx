@@ -39,6 +39,7 @@ const Publicacion = () => {
     const updateModoEdicion = () => {
         setModoEdicion(false) 
       }
+
     return (
         <Fragment>
             {

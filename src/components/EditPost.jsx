@@ -8,23 +8,26 @@ const EditPost = (props) => {
 
     const [postId, setPostId] = React.useState(props.postId)
     const [post, setPost] = React.useState(props.post)
- /*    const [postData, setPostData] = React.useState(props.dataPost) */
  
-    const guardar = () => {
-   
+    const save = () => {
       db.collection("post").doc(postId).update({
         comentario: post
       })
       .then(() => {
         console.log("Edición con éxito!", postId);
         props.ModoEdicion()
-        /* setPostId('') */
+        setPostId('') 
       });
+    }
+
+    const cancel = () => {
+      props.ModoEdicion()
     }
    return (
         <> 
             <textarea name="textpost" value={post} onChange={(e) => setPost(e.target.value)} >{post}</textarea>
-            <button onClick={guardar}>Guardar</button>
+            <button onClick={save}>Guardar</button>
+            <button onClick={cancel}>Cancelar</button>
         </>
     )
 }

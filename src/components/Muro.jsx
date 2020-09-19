@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 /* import PhotoPost from './PhotoPost'; */
 import ImageUpload from './ImageUpload';
 /* import { Link, Redirect } from 'react-router-dom' */
-
+import handleUpload from './ImageUpload'
 
 const Muro = () => {
     const [tarea, setTarea] = React.useState("")
@@ -25,7 +25,7 @@ const Muro = () => {
             console.log("esta vacio!!!")
         }
         try {
-
+            handleUpload()
             const db = firebase.firestore()
             const user = firebase.auth().currentUser;
             const nuevaTarea = {
@@ -83,7 +83,6 @@ const Muro = () => {
                         <option value="Transporte">Transporte</option>
                         <option value="Tour">Tour</option>
                     </select>
-                    {/* <PhotoPost /> */}
                     <ImageUpload urlPost={urlPost}/>
                     <Button variant="contained" color="primary" type="submit">
                         Publicar
