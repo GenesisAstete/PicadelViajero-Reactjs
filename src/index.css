@@ -27,7 +27,67 @@ code {
   font-family: "Brushstrike";
   text-align: center;
   color: white;
-  margin-top: 150px; }
+  margin-top: 150px;
+  line-height: 2.5rem; }
+
+.contenedorNavbar {
+  text-align: center;
+  background-color: #03293C; }
+
+.imagenLogo {
+  width: 40%; }
+
+.contenedorBotones {
+  height: 5vh;
+  display: flex;
+  /* flex-wrap: wrap; */
+  overflow-x: auto; }
+
+button {
+  flex-grow: 1;
+  color: black;
+  font-weight: bold;
+  width: 62px; }
+
+.colorUno {
+  background-color: #49BEB7;
+  border: yellow;
+  font-size: 90%;
+  height: 100%; }
+
+.colorDos {
+  background-color: #E4C01F;
+  border: aquamarine;
+  font-size: 90%;
+  height: 100%; }
+
+@media (max-width: 450px) {
+  .colorUno {
+    font-size: 80%; }
+  .colorDos {
+    font-size: 80%; }
+  button {
+    flex-grow: 10;
+    color: black;
+    font-weight: bold;
+    width: 72px; }
+  .contenedorBotones {
+    height: 5vh;
+    display: flex; } }
+
+@media (min-width: 768px) {
+  .colorUno {
+    font-size: 100%; }
+  .colorDos {
+    font-size: 100%; }
+  button {
+    flex-grow: 1;
+    color: black;
+    font-weight: bold;
+    width: 128px; }
+  .contenedorBotones {
+    height: 5vh;
+    display: flex; } }
 
 .contenedorMayorLogin {
   width: 100%;
@@ -100,21 +160,43 @@ li {
 
 @media (min-width: 1024px) {
   .contenedorIngreso {
-    width: 28%; } }
+    width: 20%; }
+  .logo {
+    margin-bottom: 60px;
+    margin-top: 0px; } }
 
 .contenedorPublicacion {
   background-color: rgba(68, 68, 68, 0.18);
   max-width: 100vw;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding: 5px;
   margin-top: 20px;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 45px; }
 
 .nombrePublicacion {
   display: flex;
-  flex-direction: wrap; }
+  padding: 4px; }
+
+.imgPublic {
+  width: 95%;
+  border-radius: 50%; }
+
+.contImg {
+  width: 19%; }
+
+.contName {
+  width: 70%; }
+
+#name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0px; }
+
+#date {
+  font-size: 0.8rem;
+  margin: 0px; }
 
 .botonesPublicacion {
   background-color: #00D1CD; }
@@ -126,6 +208,26 @@ li {
   box-sizing: border-box;
   width: 100%; }
 
+.textoPublicacion {
+  height: 10vh; }
+
+@media (min-width: 768px) {
+  .contenedorPublicacion {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 68vw; } }
+
+@media (min-width: 1024px) {
+  .contenedorPublicacion {
+    background-color: rgba(68, 68, 68, 0.18);
+    max-width: 40vw;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 20px;
+    margin-bottom: 2rem; } }
+
 .contenedorFooter {
   background-color: #03293C;
   height: 5vh;
@@ -136,7 +238,8 @@ li {
   bottom: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  margin-top: 19px; }
 
 .iconoPersona {
   width: 8%; }
@@ -151,8 +254,32 @@ form {
   display: flex;
   flex-direction: column; }
 
+@media (min-width: 768px) {
+  .contenedorGeneralMuro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
+
+@media (min-width: 1024px) {
+  .contenedorFormulario {
+    width: 41vw; }
+  .contenedorGeneralMuro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
+
 .contenedorRegistrar {
   background-image: url("../img/muelleEscritorio.jpg");
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.contenedorPassword {
+  background-image: url("../img/termasEscritorio.jpg");
+  background-size: 100% 100vh;
+  background-position: center;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -194,3 +321,13 @@ form {
   text-align: center;
   color: white;
   margin-top: 202px; }
+
+.contEdit {
+  display: flex;
+  flex-direction: column; }
+
+.contBnts {
+  display: flex; }
+
+.textEdit {
+  height: 10vh; }

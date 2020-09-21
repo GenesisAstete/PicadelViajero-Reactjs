@@ -1,11 +1,21 @@
-.contenedorRegistrar {
+.contenedorRegistrar{
     background-image: url('../img/muelleEscritorio.jpg');
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
 
+.contenedorPassword{
+   background-image: url('../img/termasEscritorio.jpg');
+   background-size: 100% 100vh;
+   background-position: center;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
 }
 
 .registrarContenedor {

@@ -4,27 +4,26 @@ import {auth, db} from '../firebase'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import { Redirect } from "react-router-dom";
 
-
-    const createUserProfileDocument =async (user) => {
-        if(!user) return;
-        const userReference =  db.doc(`users/${user.uid}`);
-        const snapShot =  await userReference.get();
-        if(!snapShot.exists) {
-            const {displayName, email, photoURL} = user;
-            const createdAt = new Date();
-            try {
-                await userReference.set({
-                    displayName,
-                    email,
-                    createdAt,
-                    photoURL
-                })
-            } catch (error) {
-                console.log(error)
-            }
+const createUserProfileDocument =async (user) => {
+    if(!user) return;
+    const userReference =  db.doc(`users/${user.uid}`);
+    const snapShot =  await userReference.get();
+    if(!snapShot.exists) {
+        const {displayName, email, photoURL} = user;
+        const createdAt = new Date();
+        try {
+            await userReference.set({
+                displayName,
+                email,
+                createdAt,
+                photoURL
+            })
+        } catch (error) {
+            console.log(error)
         }
-        return userReference;
     }
+    return userReference;
+}
 class ButtonGF extends Component {
     state = { isSignedIn: false }
     uiConfig = {

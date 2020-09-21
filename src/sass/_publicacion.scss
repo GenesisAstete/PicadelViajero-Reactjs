@@ -3,21 +3,41 @@
 .contenedorPublicacion {
     background-color: $color-publicacion;
     max-width: 100vw;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 5px;
     margin-top: 20px;
-    margin-bottom: 2rem
+    margin-bottom: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 45px;
 }
 
 .nombrePublicacion {
     display: flex;
-    flex-direction: wrap;
+    padding: 4px;
+}
+.imgPublic{
+    width: 95%;
+    border-radius: 50%;
+}
+.contImg{
+    width: 19%;
+}
+.contName{
+    width: 70%;
+}
+#name{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin:0px;
+}
+
+#date{
+    font-size: 0.8rem;
+    margin:0px;
 }
 
 .botonesPublicacion {
-    background-color: #00D1CD;
+    background-color:$color-verde;
 }
 
 .contenedorFoto {
@@ -27,4 +47,29 @@
 .imagenPublicacion {
     box-sizing: border-box;
     width: 100%;
+}
+
+.textoPublicacion {
+    height: 10vh;
+}
+
+@media (min-width: 768px) {
+    .contenedorPublicacion {
+        margin-left: 10px;
+        margin-right: 10px;
+        max-width: 68vw;
+    }
+}
+
+@media (min-width: 1024px) {
+    .contenedorPublicacion {
+        background-color: rgba(68, 68, 68, 0.18);
+        max-width: 40vw;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        margin-top: 20px;
+        margin-bottom: 2rem;
+    }
 }

@@ -1,14 +1,23 @@
 import React from 'react'
-/* import EditIcon from '@material-ui/icons/Edit';
-import IconButton from '@material-ui/core/IconButton';
-import teal from '@material-ui/core/colors/teal'; */
 import { db} from '../firebase'
+import SaveIcon from '@material-ui/icons/Save';
+import CancelIcon from '@material-ui/icons/Cancel';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: '#49BEB7',
+  },
+}));
 
 const EditPost = (props) => {
 
     const [postId, setPostId] = React.useState(props.postId)
     const [post, setPost] = React.useState(props.post)
  
+   
     const save = () => {
       db.collection("post").doc(postId).update({
         comentario: post
@@ -23,12 +32,34 @@ const EditPost = (props) => {
     const cancel = () => {
       props.ModoEdicion()
     }
+    const classes = useStyles();
    return (
-        <> 
-            <textarea name="textpost" value={post} onChange={(e) => setPost(e.target.value)} >{post}</textarea>
-            <button onClick={save}>Guardar</button>
-            <button onClick={cancel}>Cancelar</button>
-        </>
+        <div className="contEdit"> 
+            <textarea name="textpost" className="textEdit" value={post} onChange={(e) => setPost(e.target.value)} >{post}</textarea>
+            <div className="contBnts">
+            <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className={classes.button}
+                startIcon={<CancelIcon />} 
+                onClick={cancel}
+              >
+                Cancelar
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className={classes.button}
+                startIcon={<SaveIcon />}
+                onClick={save}
+              >
+                Guardar
+              </Button>
+
+              </div>
+        </div>
     )
 }
 

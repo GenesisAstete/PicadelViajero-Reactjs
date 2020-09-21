@@ -97,9 +97,9 @@ const Login = () => {
                                         >Iniciar sesion</button>
                                     </div>
 
-                                    { /* <div>
-                                        <p id="textoOlvido">¿Olvidó su Contraseña? </p>
-                                 </div>*/}
+                                    <div>
+                                    <Link to="/password"> <p id="textoOlvido">¿Olvidó su Contraseña? </p></Link>
+                                    </div>
                                     <div>
                                         <ButtonGF />
                                     </div>

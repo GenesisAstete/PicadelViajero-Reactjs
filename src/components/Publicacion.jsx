@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react'
-import foto1 from '../img/fotos1.jpg'
- import icono from '../img/usercian.png' 
+import icono from '../img/usercian.png'
 import firebase from 'firebase'
 import moment from 'moment'
-import 'moment/locale/es' // Pasar a español
+import 'moment/locale/es'
 import DeletePost from './DeletePost';
 import EditPost from './EditPost'
 import EditIcon from '@material-ui/icons/Edit';
@@ -11,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import teal from '@material-ui/core/colors/teal';
 
 const Publicacion = () => {
-  
+
     const [leer, setLeer] = React.useState([])
     const [idPost, setIdPost] = React.useState("")
     const [modoEdicion, setModoEdicion] = React.useState(false)
@@ -31,44 +30,47 @@ const Publicacion = () => {
     }, [])
 
 
-    const edit = (item) =>{ 
-        setModoEdicion(true) 
+    const edit = (item) => {
+        setModoEdicion(true)
         setIdPost(item.id)
     }
 
     const updateModoEdicion = () => {
-        setModoEdicion(false) 
-      }
-
+        setModoEdicion(false)
+    }
     return (
         <Fragment>
             {
                 leer.map(item => (
                     <div className="contenedorPublicacion" key={item.id}>
                         <div className="nombrePublicacion" >
-                            <img src={item.photoURL || icono} alt="" width='12%' /> <div>{item.displayName || 'NO ME GUARDARON NOMBRE'}</div>
-                            <div>{moment(item.fechaCreacion).subtract(10, 'days').calendar()}</div>
+                            <div className="contImg">
+                                <img src={item.photoURL || icono} alt="" className="imgPublic" /> 
+                            </div>
+                            <div className="contName">
+                                <p id="name">{item.displayName || 'NO ME GUARDARON NOMBRE'}</p>
+                                <p id="date">{moment(item.fechaCreacion).format('L')}</p>
+                            </div>
                         </div>
                         <div className="contenedorFoto">
-                            <img src={item.photoPost || foto1} className="imagenPublicacion" alt=""></img>
+                            <img src={item.photoPost} className="imagenPublicacion" alt=""></img>
                         </div>
                         {
-                        modoEdicion === true && idPost === item.id? 
-                           (
-                             <EditPost postId={idPost} post={item.comentario} ModoEdicion={updateModoEdicion}/>
-                           ):(
-                               <>
-                            <div className="textoPublicacion">{item.comentario}</div>
-                            <div className="botonesPublicacion">
-                                <DeletePost posts={item.id} dataPost={leer}/>
-                                <IconButton aria-label="edit">
-                                    <EditIcon style={{ color: teal[50] }} onClick={() => edit(item)} value={item.id}  />
-                                </IconButton> 
-                            </div>
-                            </>
-                            )    
+                            modoEdicion === true && idPost === item.id ?
+                                (
+                                    <EditPost postId={idPost} post={item.comentario} ModoEdicion={updateModoEdicion} />
+                                ) : (
+                                    <>
+                                        <div className="textoPublicacion">{item.comentario}</div>
+                                        <div className="botonesPublicacion">
+                                            <DeletePost posts={item.id} dataPost={leer} />
+                                            <IconButton aria-label="edit">
+                                                <EditIcon style={{ color: teal[50] }} onClick={() => edit(item)} value={item.id} />
+                                            </IconButton>
+                                        </div>
+                                    </>
+                                )
                         }
-                           
                     </div>
                 ))
             }

@@ -11,6 +11,7 @@ import Clima from './components/Clima';
 import Comida from './components/Comida';
 import Transporte from './components/Transporte';
 import Tour from './components/Tour';
+import Password from './components/Password';
 
 const App = () => {
 
@@ -25,6 +26,9 @@ const App = () => {
         </Route>
         <Route path="/registro">
           <Registro />
+        </Route>
+        <Route path="/password">
+          <Password />
         </Route>
         <Route path="/carousel">
           <Carousel />
