@@ -27,12 +27,18 @@ code {
   font-family: "Brushstrike";
   text-align: center;
   color: white;
-  margin-top: 150px;
+  margin-top: 150px !important;
   line-height: 2.5rem; }
 
 @media (min-width: 1024px) and (max-width: 1440px) {
   .textSlider {
-    font-size: 3rem; } }
+    font-size: 3rem;
+    margin-top: 150px !important; } }
+
+@media (min-width: 1920px) {
+  .textSlider {
+    margin-top: 356px !important;
+    font-size: 4rem; } }
 
 .contenedorNavbar {
   text-align: center;
@@ -213,6 +219,10 @@ li {
     margin-top: 0px;
     padding-bottom: 29px;
     border-radius: 0px; } }
+
+@media (min-width: 1920px) {
+  .contenedorIngreso {
+    margin-top: 140px; } }
 
 .contenedorPublicacion {
   background-color: rgba(68, 68, 68, 0.18);
