@@ -74,7 +74,7 @@ const Registro = () => {
                     (
                         <div className="contenedorRegistrar">
                             <Link to="./"> <img
-                                className="logo"
+                                className="logoR"
                                 alt="logo"
                                 src={logo}
                             /></Link>

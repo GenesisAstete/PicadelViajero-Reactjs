@@ -25,6 +25,7 @@
     border-radius: 10px;
     margin-bottom: 124px;
     z-index: 2000;
+    margin-top: 3px;
 }
 
 .formLogin {
@@ -80,9 +81,17 @@ li {
     padding: 0 !important;
     margin-bottom: 0px !important;
 }
-
+.firebaseui-idp-list {
+    display: flex !important;
+}
 .firebaseui-idp-icon {
     width: 32px !important;
+}
+.firebaseui-idp-list>.firebaseui-list-item {
+    width: 40px !important;
+}
+.firebaseui-idp-list>.firebaseui-list-item {
+    margin-right: 40px !important;
 }
 
 @media (min-width: 1024px) {
