@@ -85,18 +85,24 @@ li {
 .firebaseui-idp-google:hover,
 .mdl-button.firebaseui-idp-google:active,
 .mdl-button.firebaseui-idp-google:focus {
-  border-radius: 19px !important; }
+  border-radius: 19px !important;
+  margin-bottom: 0px !important;
+  width: 0% !important; }
 
 .firebaseui-idp-facebook,
 .firebaseui-idp-facebook:hover,
 .mdl-button.firebaseui-idp-facebook:active,
 .mdl-button.firebaseui-idp-facebook:focus {
   border-radius: 19px !important;
-  margin-bottom: 0px !important; }
+  margin-bottom: 0px !important;
+  width: 0% !important; }
 
 .firebaseui-idp-list {
   padding: 0 !important;
   margin-bottom: 0px !important; }
+
+.firebaseui-idp-icon {
+  width: 32px !important; }
 
 @media (min-width: 1024px) {
   .contenedorIngreso {
