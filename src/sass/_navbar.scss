@@ -76,5 +76,21 @@ button {
     .contenedorBotones {
         height: 5vh;
         display: flex;
+        justify-content: center;
+    }
+
+}
+
+@media(min-width:1024px) and (max-width:1440px) {
+    .contenedorNavbar {
+        max-height: 195px;
+    }
+
+    .imagenLogo {
+        width: 153px;
+    }
+
+    .contedorBotones {
+        justify-content: center;
     }
 }

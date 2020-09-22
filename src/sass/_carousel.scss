@@ -19,10 +19,17 @@
     width: 80%;
     position: absolute;
     z-index: 2000;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: "Brushstrike";
     text-align: center;
     color: white;
     margin-top: 150px;
     line-height: 2.5rem;
+}
+
+@media(min-width:1024px) and (max-width:1440px) {
+
+    .textSlider {
+        font-size: 3rem
+    }
 }
