@@ -1,12 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
-
 @font-face {
   font-family: "Brushstrike";
   src: "../fonts/Brushstriketrial.ttf"; }
@@ -108,6 +99,15 @@ button {
   .contedorBotones {
     justify-content: center; } }
 
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
+
 .contenedorMayorLogin {
   width: 100%;
   height: 100vh;
@@ -133,8 +133,7 @@ button {
   height: 110px;
   border-radius: 10px;
   margin-bottom: 124px;
-  z-index: 2000;
-  /* margin-top: 15px;*/ }
+  z-index: 2000; }
 
 .formLogin {
   text-align: center;
