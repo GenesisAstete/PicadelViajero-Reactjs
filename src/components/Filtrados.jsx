@@ -35,24 +35,26 @@ const Filtrados = (props) => {
 
     return (
         <Fragment>
-            {
-                leer.map(item => (
-                    <div className="contenedorPublicacion" key={item.id}>
-                        <div className="nombrePublicacion" >
-                            <img src={item.photoURL} alt="" width='12%' /> <div>{item.displayName}</div>
-                            <div>{moment(item.fechaCreacion).format('L')}</div>
+            <div className="contenedorGeneralMuro">
+                {
+                    leer.map(item => (
+                        <div className="contenedorPublicacion" key={item.id}>
+                            <div className="nombrePublicacion" >
+                                <img src={item.photoURL} alt="" width='12%' /> <div>{item.displayName}</div>
+                                <div>{moment(item.fechaCreacion).format('L')}</div>
+                            </div>
+                            <div className="contenedorFoto">
+                                <img src={item.photoPost || foto1} className="imagenPublicacion" alt=""></img>
+                            </div>
+                            <div className="textoPublicacion">{item.comentario}</div>
+                            <div className="botonesPublicacion">
+                                <DeleteIcon style={{ color: teal[50] }} />
+                                <EditIcon style={{ color: teal[50] }} />
+                            </div>
                         </div>
-                        <div className="contenedorFoto">
-                            <img src={item.photoPost || foto1} className="imagenPublicacion" alt=""></img>
-                        </div>
-                        <div className="textoPublicacion">{item.comentario}</div>
-                        <div className="botonesPublicacion">
-                            <DeleteIcon style={{ color: teal[50] }} />
-                            <EditIcon style={{ color: teal[50] }} />
-                        </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
         </Fragment >
     )
 }

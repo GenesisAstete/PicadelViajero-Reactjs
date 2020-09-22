@@ -94,3 +94,13 @@ button {
         justify-content: center;
     }
 }
+
+@media(min-width:1920px) and (max-width:2560px) {
+    .contenedorNavbar {
+        max-height: 237px;
+    }
+
+    .imagenLogo {
+        width: 178px;
+    }
+}
