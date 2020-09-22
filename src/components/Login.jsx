@@ -100,7 +100,7 @@ const Login = () => {
                                     <div>
                                     <Link to="/password"> <p id="textoOlvido">¿Olvidó su Contraseña? </p></Link>
                                     </div>
-                                    <div>
+                                    <div className="botontesGoogle">
                                         <ButtonGF />
                                     </div>
                                     <div>
