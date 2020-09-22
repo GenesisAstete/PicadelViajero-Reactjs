@@ -8,12 +8,14 @@ import EditPost from './EditPost'
 import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import teal from '@material-ui/core/colors/teal';
+import Like from './Like'
 
 const Publicacion = () => {
 
     const [leer, setLeer] = React.useState([])
     const [idPost, setIdPost] = React.useState("")
     const [modoEdicion, setModoEdicion] = React.useState(false)
+  /*   const [like, setLike] = React.useState([]) */
 
     React.useEffect(() => {
         const obtenerDatos = async () => {
@@ -67,7 +69,11 @@ const Publicacion = () => {
                                             <IconButton aria-label="edit">
                                                 <EditIcon style={{ color: teal[50] }} onClick={() => edit(item)} value={item.id} />
                                             </IconButton>
+                                            <IconButton aria-label="likes">
+                                            <Like posts={item} postId={item.id} user={item.uid} like={item.likes}/>
+                                            </IconButton>
                                         </div>
+                                        
                                     </>
                                 )
                         }
