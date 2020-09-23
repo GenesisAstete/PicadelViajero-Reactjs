@@ -59,6 +59,7 @@ const Muro = () => {
           console.log("en muro ", filtro)
   
       }*/
+      
     return (
         <Fragment>
             <Navbar />

@@ -1,41 +1,41 @@
 import React from 'react'
-import GradeIcon from '@material-ui/icons/Grade';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import firebase from 'firebase';
 
 const Like = (props) => {
 
-    const [like, setLike] = React.useState([props.like.length]) 
-    const [uid, setUid] = React.useState(props.user)
     const [post, setPost] = React.useState(props.posts)
-    const [postId, setPostID] = React.useState(props.postId)
-    const [count, setCount] = React.useState(0)
-    const [user, setUser] = React.useState(false)
+    const [postId, setPostId] = React.useState(props.postId)
+    const [like, setLike] = React.useState()
 
     const likes = () => {
-        if(post.id === postId && post.uid === uid){
-            firebase.firestore().collection('post').doc(postId).update({
-                likes: firebase.firestore.FieldValue.arrayUnion(uid) })
-        
-        }else{
-            const LikeSelected = post.find(element => element.id === post.id);
-            firebase.firestore().collection('post').doc(`${postId}`).update({
-                likes: firebase.firestore.FieldValue.arrayRemove(uid),
+        const usuario = firebase.auth().currentUser;
+        const userId = usuario.uid;
+          firebase.firestore().collection('post').doc(postId).get()
+          .then(() => { 
+            const docLikes = post.likes;
+            const includesUser = docLikes.includes(userId);
+            setLike(docLikes)
+            console.log('doclike',like)
+            if (includesUser === true) {
+              firebase.firestore().collection('post').doc(postId).update({
+                likes: firebase.firestore.FieldValue.arrayRemove(userId),
               });
-              setUid("")
-              setPostID("")
-        }
-        
-  /*       const postSelect =  post.find(element => element.id === post.id);
-        postSelect.count = postSelect.count + 1
-        setLike({...postSelect, like: postSelect.count}) */
-/*         const array = props.resumen
-        const itemSelected = array.find(element => element.idProducto === item.idProducto);
-        itemSelected.countProducto = itemSelected.countProducto + 1;
-        setResult({ ...array, countProducto : itemSelected.countProducto}) */
+              console.log("LIKE SACADO");
+
+            } else if (includesUser === false) {
+              firebase.firestore().collection('post').doc(postId).update({
+                likes: firebase.firestore.FieldValue.arrayUnion(userId),
+              });
+
+            }
+
+          }); 
+       
      } 
     return (
         <div style={{display:'flex', alignItems:'center'}}>
-            <GradeIcon onClick={likes}/>
+            <ThumbUpAltIcon onClick={likes}/>
             <p>{props.like.length}</p>
         </div>
     )
