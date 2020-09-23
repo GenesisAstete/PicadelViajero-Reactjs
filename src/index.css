@@ -312,6 +312,13 @@ form {
   display: flex;
   flex-direction: column; }
 
+.MuiButton-containedPrimary {
+  width: 100% !important; }
+
+.MuiButton-containedPrimary {
+  background-color: #00D1CD !important;
+  color: black !important; }
+
 @media (min-width: 768px) {
   .contenedorGeneralMuro {
     display: flex;

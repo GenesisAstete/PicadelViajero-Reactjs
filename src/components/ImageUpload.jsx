@@ -3,16 +3,7 @@ import { storage } from '../firebase'
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1)
-  },
-  input: {
-    //   display: 'none',
-    margin: theme.spacing(1)
-  }
-}));
-
+ 
 
 const ImageUpload = ({urlPost}) => {
    
@@ -68,35 +59,45 @@ const ImageUpload = ({urlPost}) => {
         
       );
     } else {
-      setError("Error please choose an image to upload");
+      setError("Error por favor selecciona una foto");
     }
   };
   
   urlPost(url)
+  const useStyles = makeStyles(theme => ({
+    button: {
+      width: "100%",
+      backgroundColor: "#E4C01F",
+    },
+/*     input: {
+      //   display: 'none',
+      margin: theme.spacing(1)
+    } */
+  })); 
 
   const classes = useStyles();
-  const style = {
+ /* const style = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
-  };
+  }; */
   return (
-    <div style={style}>
+    <div   >
       <br />
       <div>
-        <input type="file" onChange={handleChange} className={classes.button} />
+        <input type="file" onChange={handleChange} /* className={classes.button} */ />
         <Button
           variant="contained"
-          className={classes.button}
+          className={classes.button} 
           onClick={handleUpload}
         >
-          Upload
+          Confirmar Foto
         </Button>
         <br />
       </div>
 
-      <div style={{ height: "100px" }}>
+      <div >
         <p style={{color:"red"}}>{error}</p>
         {progress > 0 ? <progress value={progress} max="100" /> : ""}
       </div>
